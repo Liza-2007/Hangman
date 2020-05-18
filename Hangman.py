@@ -83,21 +83,14 @@ missedLetters = ''
 correctLetters = ''
 secretWord = getRandomWord(words)
 gameIsDone = False
-
-print(secretWord)
 while True:
-    print("before displayBoard")
     displayBoard(missedLetters, correctLetters, secretWord)
-
-    print("before guess")
     guess = getGuess(missedLetters + correctLetters)
-
-    print("before if")
     if guess in secretWord:
+
         correctLetters = correctLetters + guess
 
         foundAllLetters = True
-        print("before for")
         for i in range(len(secretWord)):
             if secretWord[i] not in correctLetters:
                 foundAllLetters = False
@@ -122,5 +115,5 @@ while True:
             correctLetters = ''
             gameIsDone = False
             secretWord = getRandomWord(words)
-    else:
-        break
+        else:
+            break
